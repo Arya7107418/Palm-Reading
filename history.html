@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Palmistry</title>
+    <link rel="stylesheet" href="history.css">
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1{
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        #container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow-x: hidden;
+        }
+
+        #image-track {
+            display: flex;
+            gap: 4vmin;
+        }
+
+        .image {
+            width: 40vmin;
+            height: 56vmin;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        footer{
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> History of Palmistry</h1>
+    <div id="container">
+        <div id="image-track">
+            <img class="image" src="https://i.pinimg.com/736x/ae/16/55/ae16550a8ab5046d96ced58827123ab2.jpg" draggable="false">
+            <img class="image" src="https://shreevedic.com/wp-content/uploads/2018/06/old-palmistry.j.jpg" draggable="false">
+            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE_%D0%A2._%D0%93._%281841%29_%D0%A6%D0%B8%D0%B3%D0%B0%D0%BD%D0%BA%D0%B0-%D0%B2%D0%BE%D1%80%D0%BE%D0%B6%D0%BA%D0%B0.jpg/1200px-%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE_%D0%A2._%D0%93._%281841%29_%D0%A6%D0%B8%D0%B3%D0%B0%D0%BD%D0%BA%D0%B0-%D0%B2%D0%BE%D1%80%D0%BE%D0%B6%D0%BA%D0%B0.jpg" draggable="false">
+            <img class="image" src="https://sisterpalm.files.wordpress.com/2021/02/oldhand-1.jpg?w=236" draggable="false">
+            <img class="image" src="https://preview.redd.it/depictions-of-palmistry-on-austro-hungarian-playing-cards-v0-s1cy4o4qhl2c1.jpg?width=640&crop=smart&auto=webp&s=0ba5cf979bd33cf4d39f35df747f18f653e4eb37" draggable="false">
+            <img class="image" src="https://media.istockphoto.com/id/154946675/photo/aztec-calendar.jpg?s=612x612&w=0&k=20&c=l7-H8guoeOHVQUKY08tY12D6yk9IIanj_dJs0g1qArk=" draggable="false">
+            <img class="image" src="https://germantownjewishcentre.org/wp-content/uploads/2019/09/Palmistry.jpg" draggable="false">
+            <img class="image" src="https://i0.wp.com/circulatingnow.nlm.nih.gov/wp-content/uploads/2023/10/HT_094_2397068R.jpg?ssl=1" draggable="false">
+            <img class="image" src="https://i.pinimg.com/736x/61/21/33/612133b5a4b0a30acd35ca03eaad6606.jpg" draggable="false">
+            <img class="image" src="https://enrouteindianhistory.com/wp-content/uploads/2022/03/WhatsApp-Image-2022-03-28-at-11.46.28-AM.jpeg" draggable="false">
+        </div>
+    </div>
+   
+    <script>
+        const container = document.getElementById("container");
+        const imageTrack = document.getElementById("image-track");
+
+        let isDragging = false;
+        let initialX;
+        let translateX = 0;
+
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            initialX = e.clientX - translateX;
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const currentX = e.clientX;
+            const deltaX = currentX - initialX;
+            translateX = deltaX;
+            imageTrack.style.transform = `translateX(${translateX}px)`;
+        });
+
+        container.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+    </script>
+ <footer> Scroll these images and see the history through them.</footer>
+
+</body>
+</html>
